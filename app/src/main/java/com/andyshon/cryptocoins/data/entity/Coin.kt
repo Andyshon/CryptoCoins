@@ -1,7 +1,10 @@
 package com.andyshon.cryptocoins.data.entity
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class Coin(
     @SerializedName("id") val id: Int,
     @SerializedName("name") val name: String,
@@ -13,8 +16,7 @@ data class Coin(
     @SerializedName("max_supply") val maxSupply: Double,
     @SerializedName("circulating_supply") val circulatingSupply: Double,
     @SerializedName("total_supply") val totalSupply: Double,
-    @SerializedName("platform") val platform: Any,
     @SerializedName("cmc_rank") val cmcRank: Int,
     @SerializedName("last_updated") val lastUpdated: String,
     @SerializedName("quote") val quote: Quote
-)
+) : Parcelable

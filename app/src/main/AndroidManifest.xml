@@ -12,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.andyshon.cryptocoins.ui.screens.main.MainActivity">
+        <activity android:name=".ui.screens.coinDetail.CoinDetailActivity"/>
+        <activity android:name=".ui.screens.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

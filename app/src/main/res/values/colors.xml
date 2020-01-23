@@ -3,4 +3,15 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorRed">#ff0000</color>
+    <color name="colorLightBlue">#3a6fbf</color>
+    <color name="colorToolbar">#fd0c4aac</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorNight">#3d3d3d</color>
+    <color name="colorNightToolbar">#585858</color>
+    <color name="colorGrey">#808080</color>
+    <color name="colorRedPercent">#94142f</color>
+    <color name="colorGreenPercent">#027e2f</color>
 </resources>
