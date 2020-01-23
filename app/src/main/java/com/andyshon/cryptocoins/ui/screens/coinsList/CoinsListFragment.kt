@@ -46,7 +46,7 @@ class CoinsListFragment : Fragment() {
         activity?.let {
             viewModel = ViewModelProviders.of(it, factory)[MainViewModel::class.java]
             viewModel?.setToolbar(mTitle)
-            viewModel?.loadItems()
+            viewModel?.loadCoins()
         }
         setupList()
         observeState()
@@ -86,7 +86,7 @@ class CoinsListFragment : Fragment() {
     }
 
     private fun setupSwipeToRefresh() {
-        swipeContainer.setOnRefreshListener { viewModel?.loadItems() }
+        swipeContainer.setOnRefreshListener { viewModel?.loadCoins() }
         swipeContainer.setColorSchemeResources(
             android.R.color.holo_blue_bright,
             android.R.color.holo_green_light,

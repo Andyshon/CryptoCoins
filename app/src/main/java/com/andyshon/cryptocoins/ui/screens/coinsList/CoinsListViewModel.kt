@@ -2,6 +2,7 @@ package com.andyshon.cryptocoins.ui.screens.coinsList
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.andyshon.cryptocoins.Constants
 import com.andyshon.cryptocoins.data.entity.Coin
 import com.andyshon.cryptocoins.data.model.CoinService
 import com.andyshon.cryptocoins.data.repository.Repository
@@ -51,21 +52,23 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         )
     }
 
-    fun loadItems() {
+    fun loadCoins() {
         state.postValue(CoinsListState.Loading)
         subscription = repository.getCoins()
             .applySchedulers()
+            .doOnSubscribe { coins.clear() }
+            .toObservable()
+            .flatMapIterable {it}
+            .take(Constants.FETCH_COINS_SIZE)
             .subscribe({
-                if (it.isNotEmpty()) {
-                    coins.clear()
-                    coins.addAll(it)
-                    state.postValue(CoinsListState.HasData)
-                }
-                else {
-                    state.postValue(CoinsListState.NoData)
-                }
+                coins.add(it)
             }, {
                 state.postValue(CoinsListState.Error(it))
+            }, {
+                if (coins.isNotEmpty())
+                    state.postValue(CoinsListState.HasData)
+                else
+                    state.postValue(CoinsListState.NoData)
             })
     }
 
