@@ -19,7 +19,6 @@ class SplashActivity : AppCompatActivity() {
                 View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 or View.SYSTEM_UI_FLAG_FULLSCREEN
                 or View.SYSTEM_UI_FLAG_IMMERSIVE)
-        // add comment
 
         Handler().postDelayed({
             MainActivity.startActivity(this)
