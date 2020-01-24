@@ -1,5 +1,7 @@
 package com.andyshon.cryptocoins.ui.screens.main
 
+import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
@@ -24,6 +26,14 @@ import org.jetbrains.anko.toast
 import javax.inject.Inject
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    companion object {
+        fun startActivity(context: Context) {
+            val intent = Intent(context, MainActivity::class.java)
+                .apply { addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK) }
+            context.startActivity(intent)
+        }
+    }
 
     private lateinit var toggle: ActionBarDrawerToggle
     @Inject lateinit var factory: ViewModelFactory
