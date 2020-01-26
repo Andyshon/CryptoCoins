@@ -56,8 +56,9 @@ class MainViewModel(private val repository: Repository) : ViewModel() {
         state.postValue(CoinsListState.Loading)
         subscription = repository.getCoins()
             .applySchedulers()
-            .doOnSubscribe { coins.clear() }
-            .toObservable()
+            .doOnSubscribe {
+                coins.clear()
+            }
             .flatMapIterable {it}
             .take(Constants.FETCH_COINS_SIZE)
             .subscribe({

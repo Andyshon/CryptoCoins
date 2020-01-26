@@ -28,7 +28,7 @@ class App : Application() {
             .builder()
             .appModule(AppModule(this))
             .viewModelModule(ViewModelModule())
-            .repositoryModule(RepositoryModule())
+            .repositoryModule(RepositoryModule(this))
             .build()
     }
 

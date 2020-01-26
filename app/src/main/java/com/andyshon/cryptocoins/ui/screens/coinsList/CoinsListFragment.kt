@@ -65,6 +65,9 @@ class CoinsListFragment : Fragment() {
                         when (state.message) {
                             is Int -> toast(getString(state.message))
                             is String -> toast(state.message)
+                            else -> {
+                                toast("${state.message}")
+                            }
                         }
                     }
                 }
